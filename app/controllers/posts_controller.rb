@@ -5,16 +5,21 @@ class PostsController < ApplicationController
     @posts = current_user.posts.all
   end
 
+  def new
+    @post = Post.new
+  end
+
+
   def create
-    @post = Post.new(params[post_params])
+    @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to "posts"
+      redirect_to posts_path
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:description)
+    params.permit(:description)
   end
 end

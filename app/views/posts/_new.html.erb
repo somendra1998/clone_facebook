@@ -1,0 +1,5 @@
+<%= form_with url: posts_path(@post) do |form| %>
+  <%=form.label :description %>
+  <%= form.text_area :description, class: "description-box" %>
+  <%= form.submit %>
+<% end %>
