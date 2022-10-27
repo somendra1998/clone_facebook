@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_scope :user do
     authenticated :user do
-      root 'home#show', as: :authenticated_root
+      root 'posts#index', as: :authenticated_root
+      resources :posts
     end
   
     unauthenticated do
