@@ -1,6 +1,6 @@
 <%= render :partial => 'new.html.erb'%>
 
 <% @posts.each do |post| %>
-  <%=post.user.full_name%><br>
+  <%=post.author.full_name%><br>
   <%=post.description%><br>
 <% end %>
