@@ -7,8 +7,11 @@ Rails.application.routes.draw do
       # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_scope :user do
     authenticated :user do
-      root 'posts#index', as: :authenticated_root
-      resources :posts
+      root 'home#index', as: :authenticated_root
+      resources :posts do
+        resources :likes, only: [:create]
+      end
+      delete 'like/:id', to: 'likes#destroy', as: 'post_unlike'
     end
   
     unauthenticated do
