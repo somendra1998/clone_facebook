@@ -1,5 +1,7 @@
 <%= form_with url: posts_path(@post) do |form| %>
-  <%=form.label :description %>
-  <%= form.text_area :description, class: "description-box" %>
-  <%= form.submit %>
+  <div class="form-outline mb-4">
+    <%=form.label :post , class:"form-label", for:"form6Example7"%>
+    <%= form.text_area :description, class:"form-control", id:"form6Example7", rows:"4" %>
+  </div>
+  <%= form.submit class: 'btn btn-primary btn-block mb-4'  %>
 <% end %>
