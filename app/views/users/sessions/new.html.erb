@@ -1,26 +1,28 @@
-<h2>Log in</h2>
+<div class= "login-head">
+  <h2>Log in</h2>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html=>{:class=> "login-form"}) do |f| %>
+  <div class="form-outline mb-4">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "form2Example1",  class:"form-control",type: "email" %>
+    <%= f.label :email, for: "form2Example1", class: "form-label" %><br />
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", id: "form2Example2",  class:"form-control",type: "password" %>
+    <%= f.label :password, for: "form2Example2", class: "form-label" %><br />
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me, class: "form-check-input", type:"checkbox",value:"" %>
+      <%= f.label :remember_me, class:"form-check-label", for:"form2Example31" %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Sign In", class:"btn btn-primary btn-block mb-4"%>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%#= render "users/shared/links" %>

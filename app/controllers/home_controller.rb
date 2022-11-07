@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
-  def show
-    
+  
+  def index
+    @post = Post.all
+  end
+  
+  def create
+    binding.pry
   end
 end

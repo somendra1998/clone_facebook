@@ -1,0 +1,3 @@
+$('#like-post-'+'<%=@parent.id%>').attr('src', "<%= asset_path('liked_logo.png')%>");
+$('#like-post-'+'<%=@parent.id%>').parent().attr('data-method', "delete");
+$('#like-post-'+'<%=@parent.id%>').parent().attr('href', "/like/<%=@parent.likes.first.id%>");

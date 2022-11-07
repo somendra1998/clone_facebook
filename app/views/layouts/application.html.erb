@@ -7,19 +7,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
   <%# Navbar for edit profile and logut link  %>
   <p class="navbar-text float-right">
   <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
     <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, method: :delete, :class => 'navbar-link'  %>
   <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary btn-block mb-4'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'btn btn-primary btn-block mb-4'  %>
   <% end %>
   </p>
 
