@@ -18,9 +18,4 @@ class LikesController < ApplicationController
   def parent 
     Post.find params[:post_id] if params[:post_id].present?
   end
-
-  # def like_params
-  #   params.require(:like).merge(user_id: current_user.id,)
-
-  # end
 end
