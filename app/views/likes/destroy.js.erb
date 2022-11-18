@@ -1,3 +1,4 @@
 $('#like-post-'+'<%=@unlike.likeable_id%>').attr('src', "<%= asset_path('like_logo.png')%>");
 $('#like-post-'+'<%=@unlike.likeable_id%>').parent().attr('data-method', "post");
 $('#like-post-'+'<%=@unlike.likeable_id%>').parent().attr('href', "/posts/<%=@unlike.likeable_id%>/likes");
+
