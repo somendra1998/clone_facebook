@@ -1,0 +1,9 @@
+<div class= "posts">
+  <% @posts.each do |post| %>
+  <div class= "post">
+    <b><%=post.author.full_name%></b><br>
+    <%=post.description%><br>
+    <%=like_btn(post)%><br/>
+  </div>
+  <% end %>
+</div>

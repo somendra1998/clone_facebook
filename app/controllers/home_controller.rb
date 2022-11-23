@@ -1,9 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @post = Post.all
-  end
-  
-  def create
+    @posts = Post.all
+    @post = Post.new
   end
 end

@@ -1,0 +1,10 @@
+<% if @post.errors.any? %>
+  post_error = '<%= @post.errors.full_messages.first %>'
+  $('.post-error').html(post_error)
+  $('.post-error').css("display", "block")
+  $('.post-error').css("color", "red")
+<%else%>
+  $('#exampleModal').modal('hide')
+  $('.posts').append('<div class= "post"><b><%= escape_javascript(@post.author.full_name)%></b><br> <%= escape_javascript(@post.description)%><br> <%= escape_javascript(like_btn(@post))%><div>')
+<%end%>
+

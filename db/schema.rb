@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_01_093257) do
-
-  create_table "blogs", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2022_11_21_074253) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
