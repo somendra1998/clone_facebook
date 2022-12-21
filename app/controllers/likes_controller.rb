@@ -1,22 +1,24 @@
 class LikesController < ApplicationController
+  before_action :parent, only: [:new, :create]
+
   def new
     @like = Like.new
   end
 
   def create
-    @parent = parent
     @like = @parent.likes.new(user_id: current_user.id)
     @like.save
   end
 
   def destroy
-    @unlike = Like.destroy(params[:id])
+    @like = Like.destroy(params[:id])
   end
 
   private
 
   def parent 
-    Post.find params[:post_id] if params[:post_id].present?
+    @klass = params[:likeable_type].capitalize.constantize
+    @parent = @klass.find(params[:post_id])
   end
 
   # def like_params

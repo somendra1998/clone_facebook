@@ -7,6 +7,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'; 
+import "jquery";
+// Custom JS file imported
+import './custom/comment'; 
 
 Rails.start()
 Turbolinks.start()

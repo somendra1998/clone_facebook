@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     authenticated :user do
       root 'home#index', as: :authenticated_root
       resources :posts do
-        resources :likes, only: [:create]
+        resources :comments, only: [:create]  
       end
-      delete 'like/:id', to: 'likes#destroy', as: 'post_unlike'
+      resources :likes, only: [:create]
+      delete 'like/:id', to: 'likes#destroy', as: 'unlike'
     end
   
     unauthenticated do

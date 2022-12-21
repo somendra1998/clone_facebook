@@ -1,0 +1,9 @@
+<%= form_for  @comment, url:  post_comments_path(post_id: post ), :remote => true, html: {class: 'comment-box'} do |form| %>
+  <div class="form-outline mb-4">
+    <%=form.label :comment , class:"form-label", for:"form6Example7"%>
+    <%= form.text_area :content, class:"form-control", id:"form6Example7", rows:"4" %>
+  </div>
+  <div style="display:none;" class="post-error">
+  </div>
+  <%= form.submit class: 'btn btn-primary btn-block mb-4 text-center', id: "post-submit"  %>
+<% end %>

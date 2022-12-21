@@ -1,0 +1,13 @@
+$(document).ready(function () {
+  $('.comment-link').on('click', function () {
+    $('.comment-box').css("display","block");
+    $('.comment-hide').css("display","block");
+    $('.comment-link').css("display","none");
+  })
+
+  $('.comment-hide').on('click', function() {
+    $('.comment-box').css("display", "none");
+    $('.comment-link').css("display", "block");
+    $('.comment-hide').css("display","none");
+  })
+})

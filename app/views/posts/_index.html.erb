@@ -3,7 +3,11 @@
   <div class= "post">
     <b><%=post.author.full_name%></b><br>
     <%=post.description%><br>
-    <%=like_btn(post)%><br/>
+    <%=like_btn(post, "Post")%><br/>
+    <%=post_comments(post)%> <br>
+  <%= render partial: 'comments/new.html.erb', locals: {post: post} %>
+ <a href="javascript:void(0)" class="comment-link" >Comment</a>
+ <a href="javascript:void(0)" class="comment-hide" >Cancel</a>
   </div>
   <% end %>
 </div>
