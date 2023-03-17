@@ -1,4 +1,9 @@
-$('#like-post-'+'<%=@like.likeable_id%>').attr('src', "<%= asset_path('like_logo.png')%>");
-$('#like-post-'+'<%=@like.likeable_id%>').parent().attr('data-method', "post");
-$('#like-post-'+'<%=@like.likeable_id%>').parent().attr('href', "/likes?likeable_type=<%=@like.likeable_type%>&post_id=<%=@like.likeable.id%>");
-
+<%# if @klass == Post %>
+  $('#like-post-'+'<%=@like.likeable_id%>').attr('src', "<%= asset_path('like_logo.png')%>");
+  $('#like-post-'+'<%=@like.likeable_id%>').parent().attr('data-method', "post");
+  $('#like-post-'+'<%=@like.likeable_id%>').parent().attr('href', "/likes?likeable_type=<%=@like.likeable_type%>&likeable_id=<%=@like.likeable.id%>");
+<%# else %>
+  $('#like-comment-'+'<%=@like.likeable_id%>').attr('src', "<%= asset_path('like_logo.png')%>");
+  $('#like-comment-'+'<%=@like.likeable_id%>').parent().attr('data-method', "post");
+  $('#like-comment-'+'<%=@like.likeable_id%>').parent().attr('href', "/likes?likeable_type=<%=@like.likeable_type%>&likeable_id=<%=@like.likeable.id%>");
+<%#end%>

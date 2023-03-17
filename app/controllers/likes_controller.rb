@@ -11,18 +11,15 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.destroy(params[:id])
+    @like = Like.find(params[:id])
+    @like.destroy
   end
 
   private
 
-  def parent 
-    @klass = params[:likeable_type].capitalize.constantize
-    @parent = @klass.find(params[:post_id])
+  def parent
+    @klass = params[:likeable_type].constantize
+    @parent = @klass.find(params[:likeable_id])
   end
 
-  # def like_params
-  #   params.require(:like).merge(user_id: current_user.id,)
-
-  # end
 end
