@@ -1,3 +1,7 @@
-$('#like-post-'+'<%=@parent.id%>').attr('src', "<%= asset_path('liked_logo.png')%>");
-$('#like-post-'+'<%=@parent.id%>').parent().attr('data-method', "delete");
-$('#like-post-'+'<%=@parent.id%>').parent().attr('href', "/like/<%=@parent.likes.first.id%>");
+<% if @klass == Post %>
+  $('#like-post-'+'<%=@parent.id%>').attr('src', "<%= asset_path('liked_logo.png')%>");
+  $('#like-post-'+'<%=@parent.id%>').parent().attr('data-method', "delete").attr('href', "/like/<%=@parent.likes.first.id%>");
+<% else %>
+  $('#like-comment-'+'<%=@parent.id%>').attr('src', "<%= asset_path('liked_logo.png')%>");
+  $('#like-comment-'+'<%=@parent.id%>').parent().attr('data-method', "delete").attr('href', "/like/<%=@parent.likes.first.id%>");
+<%end%>

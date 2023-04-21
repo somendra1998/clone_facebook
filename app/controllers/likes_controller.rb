@@ -1,26 +1,25 @@
 class LikesController < ApplicationController
+  before_action :parent, only: [:new, :create]
+
   def new
     @like = Like.new
   end
 
   def create
-    @parent = parent
     @like = @parent.likes.new(user_id: current_user.id)
     @like.save
   end
 
   def destroy
-    @unlike = Like.destroy(params[:id])
+    @like = Like.find(params[:id])
+    @like.destroy
   end
 
   private
 
-  def parent 
-    Post.find params[:post_id] if params[:post_id].present?
+  def parent
+    @klass = params[:likeable_type].constantize
+    @parent = @klass.find(params[:likeable_id])
   end
 
-  # def like_params
-  #   params.require(:like).merge(user_id: current_user.id,)
-
-  # end
 end
