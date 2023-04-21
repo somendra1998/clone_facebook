@@ -1,6 +1,6 @@
 <div class= "posts">
   <% @posts.each do |post| %>
-    <div class= "post">
+    <div class= "post", id="post-<%=post.id%>">
       <b><%=post.author.full_name%></b><br>
       <%=post.description%><br>
       <%=like_post(post, "Post")%><br/>

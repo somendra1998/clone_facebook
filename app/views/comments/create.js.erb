@@ -1,0 +1,4 @@
+$('#post-<%=@parent.id%>').children('.comments').append("<%= j CGI.unescapeHTML(post_comment(@comment)).html_safe %>")
+
+
+

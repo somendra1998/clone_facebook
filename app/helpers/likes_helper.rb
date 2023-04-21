@@ -1,7 +1,7 @@
 module LikesHelper
   def like_post(post, likeable_type)
     if current_user.likes.where(likeable_id: post.id, likeable_type: likeable_type).any?
-      link_to unlike_path(post.likes.first&.id), method: :delete, :remote => true do 
+      link_to unlike_path(post.likes.first&.id, likeable_type: likeable_type), method: :delete, :remote => true do 
         image_tag("liked_logo.png", class: "liked-post",id:"like-post-#{post.id}") 
       end
     else
@@ -13,7 +13,7 @@ module LikesHelper
   
   def like_comment(comment, likeable_type)
     if current_user.likes.where(likeable_id: comment.id, likeable_type: likeable_type).any?
-      link_to unlike_path(comment.likes.first&.id), method: :delete, :remote => true do 
+      link_to unlike_path(comment.likes.first&.id, likeable_type: likeable_type), method: :delete, :remote => true do 
         image_tag("liked_logo.png", class: "liked-comment",id:"like-comment-#{comment.id}" ) 
       end
     else
