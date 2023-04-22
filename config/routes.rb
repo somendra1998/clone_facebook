@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+  # resources :users, only: [] do 
+  #   get "get_user"
+  # end
   resources :posts do
     resources :comments, only: [:create]  
   end
@@ -20,4 +23,7 @@ Rails.application.routes.draw do
   delete 'like/:id', to: 'likes#destroy', as: 'unlike'
   
   resources :home, only: :index
+
+  # User feed
+  get 'user_feed/:user_id', to: 'user_feeds#user_feed', as: 'user_feed'
 end
