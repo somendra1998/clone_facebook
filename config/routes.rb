@@ -26,4 +26,5 @@ Rails.application.routes.draw do
 
   # User feed
   get 'user_feed/:user_id', to: 'user_feeds#user_feed', as: 'user_feed'
+  get 'view_profile', to: 'user_feeds#view_profile', as: 'view_profile'
 end

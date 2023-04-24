@@ -8,3 +8,19 @@
   height: 300px;
   overflow-y: auto;
 }
+.user-list-index{
+  // border: 2px solid black;
+  margin: 15px;
+  border-radius: 10px;
+}
+.user-list-index .profile_image{
+  height: 50px;
+  width: 50px;
+}
+
+.profile_image{
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}

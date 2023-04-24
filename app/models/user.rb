@@ -3,7 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  #Scopes
+  scope :all_except, ->(user) { where.not(id: user) }
+
   # Associations 
+  has_one_attached :profile_image
   has_many :posts, class_name: 'Post', foreign_key: "author_id"
   has_many :comments
   has_many :likes

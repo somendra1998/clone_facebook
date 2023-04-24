@@ -14,7 +14,13 @@
   <body class="container">
   <%# Navbar for edit profile and logut link  %>
   <p class="navbar-text float-right">
-  <% if user_signed_in? %>
+  <% if user_signed_in? %>    
+    <% if current_user.profile_image.attached? %>
+      <div class="navbar_profile_image">
+        <%= link_to (image_tag current_user.profile_image, class:"profile_image"), view_profile_path %>
+      </div>
+    <% end %>
+    
     Logged in as <strong><%= current_user.email %></strong>.
     <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
     <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, method: :delete, :class => 'navbar-link'  %>
