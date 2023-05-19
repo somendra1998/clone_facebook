@@ -2,6 +2,8 @@
   <div class="form-outline mb-4">
     <%=form.label :post , class:"form-label", for:"form6Example7"%>
     <%= form.text_area :description, class:"form-control", id:"form6Example7", rows:"4" %>
+    <%= form.file_field :images, class: "images-post-field", multiple: true %>
+    <%#= button_tag image_tag('image_attachment_logo.png'), class: 'attachment-logo'%>
   </div>
   <div style="display:none;" class="post-error">
   </div>

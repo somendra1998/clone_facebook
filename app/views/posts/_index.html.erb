@@ -5,6 +5,8 @@
       <%=post.description%><br>
       <%=like_post(post, "Post")%><br/>
       <%=post_comments(post)%> <br>
+      <%=post_images(post)%> <br>
+      <%#debugger%>
       <%= render partial: 'comments/new.html.erb', locals: {post: post} %>
       <%# <a href="javascript:void(0)" class="comment-link" >Comment</a> %>
       <%= link_to 'Comment', 'javascript:void(0)', class: "comment-link", data_post: "#{post.id}" %>
